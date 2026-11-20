@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Budget: know if you can afford it before you buy it</title>
+<meta name="description" content="A budgeting app for a household. It shows where your balance is heading, so you can ask whether you can afford something before you buy it.">
+<meta name="theme-color" content="#f5f5fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090a0f" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Budget">
+<meta property="og:description" content="Know if you can afford it before you buy it. A forecast-first budgeting app for a household.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%236d5cf2'/%3E%3Cpath d='M8 21l5-6 4 3 7-8' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l5-6 4 3 7-8"/></svg></span>
+      Budget
+    </a>
+    <nav class="links" aria-label="Main">
+      <a href="#features">Features</a>
+      <a href="#screens">Screens</a>
+      <a href="#privacy">Privacy</a>
+      <a class="pill" href="privacy.html">Privacy policy</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="chip"><i></i>In development for iPhone</span>
+        <h1>Know if you can afford it <span class="grad">before you buy it.</span></h1>
+        <p>Budget reads your household's bank activity, finds the bills and paychecks, and shows where your balance is heading over the coming weeks.</p>
+        <div class="cta">
+          <a class="btn primary" href="#features">See how it works</a>
+          <a class="btn quiet" href="#privacy">How your data is handled</a>
+        </div>
+      </div>
+      <div class="stage">
+        <picture>
+          <source srcset="home-dark.webp" media="(prefers-color-scheme: dark)">
+          <img class="phone" src="home.webp" width="644" height="1400" fetchpriority="high"
+               alt="The Home screen: the balance available now, a forecast line for the weeks ahead, spending this month, and net worth. Sample data.">
+        </picture>
+        <div class="float q" aria-hidden="true"><span>You ask</span><b>Can we afford $600 on Friday?</b></div>
+        <div class="float a" aria-hidden="true"><b>Yes, comfortably</b><span>Lowest balance after: $1,240 on Dec 1</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <p class="eyebrow reveal">Forecast first</p>
+      <h2 class="reveal">Built around what happens next</h2>
+      <p class="lede reveal">Most budgeting apps report what you already spent. Budget starts from the weeks ahead.</p>
+
+      <div class="bento">
+        <article class="card wide reveal">
+          <h3>A forecast you can test</h3>
+          <p>Bills, paychecks, planned costs, and your usual day of spending are projected forward. Ask about a purchase and the answer comes from the lowest balance that would follow it.</p>
+          <div class="viz" aria-hidden="true">
+            <svg class="chart" viewBox="0 0 640 170" role="presentation">
+              <defs><linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6d5cf2" stop-opacity="0.32"/><stop offset="1" stop-color="#6d5cf2" stop-opacity="0"/></linearGradient></defs>
+              <line class="grid" x1="0" y1="140" x2="640" y2="140"/>
+              <path class="area" d="M0 70 L90 78 L150 86 L152 124 L240 130 L300 136 L302 52 L400 60 L470 68 L472 96 L560 102 L640 108 L640 140 L0 140 Z"/>
+              <path class="line" pathLength="1" d="M0 70 L90 78 L150 86 L152 124 L240 130 L300 136 L302 52 L400 60 L470 68 L472 96 L560 102 L640 108"/>
+              <circle class="dot" cx="300" cy="136" r="6"/>
+              <text x="312" y="160">Lowest point</text>
+              <text x="160" y="112">Rent</text>
+              <text x="312" y="44">Payday</text>
+            </svg>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>One household</h3>
+          <p>Each person has their own sign-in and a color that marks what they added.</p>
+          <div class="viz people" aria-hidden="true">
+            <div class="row"><span class="av a">A</span>Oat milk<span>Alex</span></div>
+            <div class="row"><span class="av s">S</span>School play, Friday<span>Sam</span></div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Until payday</h3>
+          <p>What is left after the bills due before your next paycheck.</p>
+          <div class="viz" aria-hidden="true">
+            <div class="big">$1,486<small>.20</small></div>
+            <div class="split"><i></i><i></i></div>
+            <div class="cap">Bills due, and what stays. About $123 a day.</div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Budgets from reality</h3>
+          <p>Fill in monthly amounts from what you spent in recent months, then adjust.</p>
+          <div class="viz bars" aria-hidden="true">
+            <div class="bar">Groceries<div><i style="--w: 72%"></i></div></div>
+            <div class="bar">Dining out<div><i style="--w: 46%"></i></div></div>
+            <div class="bar">Transport<div><i style="--w: 58%"></i></div></div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>A shared calendar</h3>
+          <p>Events sit beside predicted bills, and sync both ways with Apple Calendar.</p>
+          <div class="viz week" aria-hidden="true">
+            <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+            <b data-dot>16</b><b>17</b><b>18</b><b class="on">19</b><b data-dot style="--dot: var(--magenta)">20</b><b>21</b><b data-dot style="--dot: var(--green)">22</b>
+          </div>
+        </article>
+
+        <article class="card half reveal">
+          <h3>Questions in plain words</h3>
+          <p>Ask about your own numbers and get a short, direct answer.</p>
+          <div class="viz chat" aria-hidden="true">
+            <div class="me">What is due in the next two weeks?</div>
+            <div class="it">Four bills, $2,146 in total. Rent on the 1st is the largest.</div>
+          </div>
+        </article>
+
+        <article class="card half reveal">
+          <h3>Bills found for you</h3>
+          <p>Repeating charges and paychecks are detected from history. A weekly grocery run is treated as a habit, not a bill, and subscriptions you no longer use get flagged before they renew.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="screens">
+    <div class="wrap">
+      <p class="eyebrow reveal">The app</p>
+      <h2 class="reveal">Clear at a glance</h2>
+      <p class="lede reveal">Shown with a sample household. The app follows your phone's light or dark setting, and so does this page.</p>
+    </div>
+    <div class="wrap screens">
+      <figure class="reveal">
+        <picture><source srcset="budget-dark.webp" media="(prefers-color-scheme: dark)">
+          <img class="phone" src="budget.webp" width="644" height="1400" loading="lazy" alt="The Budget screen: a ring for the month and a bar for each category showing spent against budgeted. Sample data."></picture>
+        <figcaption>Budget by category</figcaption>
+      </figure>
+      <figure class="reveal">
+        <picture><source srcset="home-dark.webp" media="(prefers-color-scheme: dark)">
+          <img class="phone" src="home.webp" width="644" height="1400" loading="lazy" alt="The Home screen with the forecast for the weeks ahead. Sample data."></picture>
+        <figcaption>Home and forecast</figcaption>
+      </figure>
+      <figure class="reveal">
+        <picture><source srcset="cashflow-dark.webp" media="(prefers-color-scheme: dark)">
+          <img class="phone" src="cashflow.webp" width="644" height="1400" loading="lazy" alt="The Cash flow screen comparing income and spending by month. Sample data."></picture>
+        <figcaption>Income against spending</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="privacy">
+    <div class="wrap">
+      <div class="band reveal">
+        <p class="eyebrow">Privacy</p>
+        <h2>Your data stays yours</h2>
+        <p class="lede">The short version. The <a href="privacy.html">privacy policy</a> has the detail.</p>
+        <div class="three">
+          <div>
+            <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg></div>
+            <h3>No ads, no tracking, no sale</h3>
+            <p>The app has no advertising and no analytics. Your data is not sold or shared for marketing. This site sets no cookies and runs no scripts.</p>
+          </div>
+          <div>
+            <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+            <h3>Bank access stays on the server</h3>
+            <p>The app never sees your bank password. The key that reads your bank activity is encrypted on the server and is never stored on a phone.</p>
+          </div>
+          <div>
+            <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M7.5 10.5L12 15l4.5-4.5"/><path d="M5 19h14"/></svg></div>
+            <h3>Take it or delete it</h3>
+            <p>Export everything your household holds as one file. Delete your account from Settings, and the data goes with it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Jack Pearcy</span>
+    <span><a href="privacy.html">Privacy policy</a></span>
+  </div>
+</footer>
+</body>
+</html>

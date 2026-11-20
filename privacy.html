@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f5f5fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090a0f" media="(prefers-color-scheme: dark)">
+<title>Privacy policy: Budget</title>
+<meta name="description" content="What the Budget app collects, where it is kept, who else handles it, and how to export or delete it.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l5-6 4 3 7-8"/></svg></span>
+      Budget
+    </a>
+    <nav class="links" aria-label="Main"><a class="pill" href="index.html">Home</a></nav>
+  </div>
+</header>
+<div class="wrap doc">
+  <nav class="toc" aria-label="On this page">
+    <a href="#short">In short</a><a href="#collects">What the app collects</a><a href="#never">What it never has</a>
+    <a href="#kept">Where data is kept</a><a href="#others">Who else handles it</a><a href="#device">Calendar, alerts, widget</a>
+    <a href="#demo">The demo</a><a href="#household">Sharing in a household</a><a href="#choices">Your choices</a>
+    <a href="#children">Children</a><a href="#changes">Changes</a><a href="#contact">Contact</a>
+  </nav>
+  <main>
+    <h1>Privacy policy</h1>
+    <p class="date">Effective November 19, 2026</p>
+
+    <p>Budget is a budgeting app for a household. This page says what the app collects, where it is kept, who else handles it, and how you can take it out or delete it.</p>
+
+    <h2 id="short">In short</h2>
+    <ul class="summary">
+      <li>The app collects what it needs to work: your sign-in email, your household's financial data, and what you type into the app.</li>
+      <li>There is no advertising and no analytics. Your data is not sold, and it is not shared for marketing.</li>
+      <li>You can export everything and delete your account from inside the app.</li>
+    </ul>
+
+    <h2 id="collects">What the app collects</h2>
+    <ul>
+      <li><strong>Account.</strong> Your email address and a password. The password is stored only as a hash by the sign-in service.</li>
+      <li><strong>Household profile.</strong> The household's name, your display name and color, and your pay schedule if you set one.</li>
+      <li><strong>Bank data.</strong> If you connect a bank: account names, institutions, balances, and transactions (date, amount, description). You can also enter transactions by hand or import a file from your bank.</li>
+      <li><strong>What you add.</strong> Categories, budgets, savings goals, calendar events, the shopping list, credit scores you record, and answers about subscriptions.</li>
+      <li><strong>Questions to the assistant.</strong> The messages you type on the Ask screen.</li>
+      <li><strong>Usage counts.</strong> A count of bank and assistant requests per household, kept to enforce daily limits and control cost. The content of a request is not logged.</li>
+    </ul>
+    <p>The app does not collect your location, contacts, photos, or advertising identifier.</p>
+
+    <h2 id="never">What the app never has</h2>
+    <ul>
+      <li><strong>Your bank password.</strong> You sign in to your bank at SimpleFIN Bridge, not in this app.</li>
+      <li><strong>Full account or routing numbers.</strong> The bank connection does not provide them to the app.</li>
+    </ul>
+
+    <h2 id="kept">Where your data is kept</h2>
+    <ul>
+      <li><strong>On the server.</strong> Household data is stored in a database hosted by Supabase. Database rules limit every row to the members of its household.</li>
+      <li><strong>The bank access key.</strong> The key that lets the server read your bank activity is encrypted at rest on the server. It is never sent to a phone, and only the server can read it.</li>
+      <li><strong>On your phone.</strong> The app keeps a copy of your household's data so it can open without a connection. The copy is protected by the phone's file encryption, is left out of device backups, and is removed when you sign out.</li>
+    </ul>
+
+    <h2 id="others">Who else handles your data</h2>
+    <p>Three services process data so the app can work. None of them receives it for advertising.</p>
+    <ul>
+      <li><strong>Supabase</strong> hosts the database, sign-in, and server functions.</li>
+      <li><strong>SimpleFIN Bridge</strong> connects to your bank, if you choose to connect one. You create that connection yourself and can remove it there at any time.</li>
+      <li><strong>Anthropic</strong> provides the model behind the Ask screen. When you ask a question, the server sends your question together with your household's financial data: account names and balances, categories and budgets, goals, recent transactions, and a forecast. Long runs of digits are masked first, and the bank access key is never sent. If you do not use the Ask screen, nothing is sent to Anthropic.</li>
+    </ul>
+
+    <h2 id="device">Apple Calendar, notifications, and the widget</h2>
+    <p>These are off until you turn them on. Calendar sync copies household events and predicted bills into a calendar on your device, and reads back changes you make to them there. Events in your other calendars are shown inside the app and are never uploaded. Bill reminders are scheduled on your device. The widget shows balances on your home screen and hides amounts while the phone is locked.</p>
+
+    <h2 id="demo">The demo</h2>
+    <p>The demo uses a made-up household that is built on your phone. Nothing in it is sent to the server.</p>
+
+    <h2 id="household">Sharing inside a household</h2>
+    <p>Everyone in a household sees the same financial data. Join a household only with people you want to share that with.</p>
+
+    <h2 id="choices">Your choices</h2>
+    <ul>
+      <li><strong>Export.</strong> Settings, then Export All Data, gives you one file with everything your household holds.</li>
+      <li><strong>Delete.</strong> Settings, then Delete Account. If you are a member, your account and membership are deleted and the household stays with the others. If you are the owner, the whole household is deleted for everyone in it, along with the stored bank access key. Deletion takes effect at once. Copies in the hosting provider's backups expire on its schedule.</li>
+      <li><strong>Disconnect the bank.</strong> Settings removes the connection from the app. To end access at the source, also remove the app at SimpleFIN Bridge.</li>
+    </ul>
+
+    <h2 id="children">Children</h2>
+    <p>The app is not directed to children under 13, and it does not knowingly collect their data.</p>
+
+    <h2 id="changes">Changes</h2>
+    <p>If this policy changes, the new version will be posted here with a new effective date.</p>
+
+    <h2 id="contact">Contact</h2>
+    <p class="note">A contact address will be added here before the app is released.</p>
+  </main>
+</div>
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Jack Pearcy</span>
+    <span><a href="index.html">Home</a></span>
+  </div>
+</footer>
+</body>
+</html>
