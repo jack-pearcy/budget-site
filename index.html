@@ -11,6 +11,8 @@
 <meta property="og:description" content="Know if you can afford it before you buy it. A forecast-first budgeting app for a household.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%236d5cf2'/%3E%3Cpath d='M8 21l5-6 4 3 7-8' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -68,7 +70,7 @@
               <label id="amount-label" for="amount">A purchase this Friday</label>
               <output id="amount-out" for="amount">$400</output>
             </div>
-            <input id="amount" type="range" min="0" max="2000" step="50" value="400" style="--fill: 20%">
+            <input id="amount" type="range" min="0" max="2000" step="50" value="400">
             <div class="verdict" id="verdict" data-state="ok" role="status" aria-live="polite">
               <b id="verdict-title">Yes, comfortably</b>
               <span id="verdict-detail">Lowest balance after: $590, just before payday. Up to $690 fits.</span>
@@ -114,9 +116,9 @@
           <h3>Budgets from reality</h3>
           <p>Fill in monthly amounts from what you spent in recent months, then adjust.</p>
           <div class="viz bars" aria-hidden="true">
-            <div class="bar">Groceries<div><i style="--w: 72%"></i></div></div>
-            <div class="bar">Dining out<div><i style="--w: 46%"></i></div></div>
-            <div class="bar">Transport<div><i style="--w: 58%"></i></div></div>
+            <div class="bar">Groceries<div><i class="w72"></i></div></div>
+            <div class="bar">Dining out<div><i class="w46"></i></div></div>
+            <div class="bar">Transport<div><i class="w58"></i></div></div>
           </div>
         </article>
 
@@ -125,7 +127,7 @@
           <p>Events sit beside predicted bills, and sync both ways with Apple Calendar.</p>
           <div class="viz week" aria-hidden="true">
             <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
-            <b data-dot>16</b><b>17</b><b>18</b><b class="on">19</b><b data-dot style="--dot: var(--magenta)">20</b><b>21</b><b data-dot style="--dot: var(--green)">22</b>
+            <b data-dot>16</b><b>17</b><b>18</b><b class="on">19</b><b data-dot class="dot-magenta">20</b><b>21</b><b data-dot class="dot-green">22</b>
           </div>
         </article>
 

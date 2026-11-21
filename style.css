@@ -134,10 +134,12 @@ h2 { font-size: clamp(30px, 4vw, 48px); line-height: 1.08; letter-spacing: -0.03
 .bar { display: grid; grid-template-columns: 84px 1fr; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); }
 .bar div { height: 8px; border-radius: 999px; background: var(--raised); overflow: hidden; }
 .bar div i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--violet), var(--accent)); width: var(--w); }
+.bar i.w72 { --w: 72%; } .bar i.w46 { --w: 46%; } .bar i.w58 { --w: 58%; }
 
 .week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; text-align: center; font-size: 12px; color: var(--muted); }
 .week b { display: grid; place-items: center; aspect-ratio: 1; border-radius: 12px; background: var(--raised); color: var(--text); font-size: 14px; position: relative; }
 .week b.on { background: linear-gradient(135deg, var(--violet), var(--indigo)); color: #fff; }
+.week b.dot-magenta { --dot: var(--magenta); } .week b.dot-green { --dot: var(--green); }
 .week b[data-dot]::after { content: ""; position: absolute; bottom: 5px; width: 5px; height: 5px; border-radius: 50%; background: var(--dot, var(--warn)); }
 
 .chat { display: grid; gap: 8px; font-size: 15px; }
@@ -152,7 +154,7 @@ h2 { font-size: clamp(30px, 4vw, 48px); line-height: 1.08; letter-spacing: -0.03
 .demo-top output { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
 input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 32px; margin: 0; background: transparent; cursor: grab; touch-action: pan-y; }
 input[type="range"]:active { cursor: grabbing; }
-input[type="range"]::-webkit-slider-runnable-track { height: 8px; border-radius: 999px; background: linear-gradient(90deg, var(--violet) var(--fill, 0%), var(--raised) var(--fill, 0%)); }
+input[type="range"]::-webkit-slider-runnable-track { height: 8px; border-radius: 999px; background: linear-gradient(90deg, var(--violet) var(--fill, 20%), var(--raised) var(--fill, 20%)); }
 input[type="range"]::-moz-range-track { height: 8px; border-radius: 999px; background: var(--raised); }
 input[type="range"]::-moz-range-progress { height: 8px; border-radius: 999px; background: var(--violet); }
 input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 26px; height: 26px; margin-top: -9px; border-radius: 50%; background: #fff; border: 2px solid var(--violet); box-shadow: 0 4px 14px rgb(40 30 120 / 0.35); transition: transform 0.15s var(--ease); }
