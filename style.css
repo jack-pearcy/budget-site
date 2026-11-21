@@ -75,7 +75,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 .stage { position: relative; display: grid; place-items: center; }
 .phone { width: min(322px, 78vw); border-radius: 44px; border: 1px solid var(--line); box-shadow: var(--shadow), 0 0 0 9px color-mix(in srgb, var(--surface) 70%, transparent); }
-.float { position: absolute; padding: 12px 16px; border-radius: 18px; font-size: 14px; line-height: 1.35; background: color-mix(in srgb, var(--surface) 86%, transparent); border: 1px solid var(--line); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); box-shadow: var(--shadow); }
+.float { position: absolute; padding: 12px 16px; border-radius: 18px; font-size: 14px; line-height: 1.35; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
 .float b { display: block; font-size: 15px; }
 .float span { color: var(--muted); }
 .float.q { top: 21%; left: -14%; }
@@ -169,9 +169,13 @@ footer a { color: var(--muted); }
 
 /* Motion: only for people who have not asked for less of it. */
 @media (prefers-reduced-motion: no-preference) {
+  /* Each drifting piece gets its own layer and moves by transform only. Without that the
+     browser repaints it every frame and snaps it to whole pixels, which reads as stepping. A
+     blurred backdrop on a moving piece forces the same repaint, so the chips are solid. */
+  .stage .phone, .float { will-change: transform; backface-visibility: hidden; }
   .stage .phone { animation: drift 7s ease-in-out infinite alternate; }
-  .float.q { animation: drift 6s ease-in-out -2s infinite alternate; }
-  .float.a { animation: drift 8s ease-in-out -4s infinite alternate-reverse; }
+  .float.q { animation: drift-wide 5.5s ease-in-out -2s infinite alternate; }
+  .float.a { animation: drift-wide 6.5s ease-in-out -4s infinite alternate-reverse; }
   /* The opening moves into place but never starts hidden: a page captured before its first
      frame (a link preview, a background tab) must still show its content. */
   .hero h1, .hero p, .hero .chip, .hero .cta, .stage { animation: settle 0.9s var(--ease) both; }
@@ -181,7 +185,8 @@ footer a { color: var(--muted); }
     .chart .line { animation: draw linear both; animation-timeline: view(); animation-range: entry 10% cover 42%; }
   }
 }
-@keyframes drift { from { translate: 0 -7px; } to { translate: 0 7px; } }
+@keyframes drift { from { transform: translate3d(0, -8px, 0); } to { transform: translate3d(0, 8px, 0); } }
+@keyframes drift-wide { from { transform: translate3d(0, -12px, 0); } to { transform: translate3d(0, 12px, 0); } }
 @keyframes settle { from { transform: translateY(20px) scale(0.985); } to { transform: none; } }
 @keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
 @keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
