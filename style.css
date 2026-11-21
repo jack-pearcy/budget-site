@@ -14,6 +14,7 @@
   --indigo: #3f35c9;
   --good: light-dark(#0c8f61, #45dfa0);
   --warn: light-dark(#c2571a, #ff9a5c);
+  --bad: light-dark(#c8322b, #ff6f66);
   --magenta: #c63fae;
   --green: #1fa971;
   --shadow: light-dark(0 24px 60px rgb(40 30 120 / 0.16), 0 30px 70px rgb(0 0 0 / 0.55));
@@ -92,6 +93,11 @@ h2 { font-size: clamp(30px, 4vw, 48px); line-height: 1.08; letter-spacing: -0.03
 .bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
 .card { grid-column: span 2; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: flex; flex-direction: column; gap: 10px; transition: transform 0.35s var(--ease), border-color 0.35s; }
 .card:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+.card { position: relative; isolation: isolate; }
+.card::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity 0.3s; background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 0%), color-mix(in srgb, var(--violet) 16%, transparent), transparent 70%); }
+.card:hover::before { opacity: 1; }
+.screens .phone { transition: transform 0.4s var(--ease); }
+.screens figure:hover .phone { transform: translateY(-8px) scale(1.02); }
 .card.wide { grid-column: span 4; }
 .card.half { grid-column: span 3; }
 .card h3 { margin: 0; font-size: 20px; letter-spacing: -0.01em; }
@@ -99,7 +105,13 @@ h2 { font-size: clamp(30px, 4vw, 48px); line-height: 1.08; letter-spacing: -0.03
 .viz { margin-top: auto; padding-top: 14px; }
 
 .chart { width: 100%; height: auto; overflow: visible; }
-.chart .line { fill: none; stroke: var(--violet); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.chart .line { fill: none; stroke: var(--violet); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.chart .ghost { fill: none; stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 4 5; opacity: 0.55; }
+.chart .rule { stroke: var(--line); stroke-width: 1; }
+.chart .rule.cushion { stroke: var(--warn); stroke-dasharray: 3 5; opacity: 0.6; }
+.chart .rule.zero { stroke: var(--muted); opacity: 0.5; }
+.chart .rule.buy { stroke: var(--accent); stroke-dasharray: 2 4; opacity: 0.7; }
+.chart.is-live .dot { transition: cx 0.18s var(--ease), cy 0.18s var(--ease); }
 .chart .area { fill: url(#fade); }
 .chart .grid { stroke: var(--line); stroke-width: 1; }
 .chart .dot { fill: var(--surface); stroke: var(--warn); stroke-width: 3; }
@@ -132,6 +144,25 @@ h2 { font-size: clamp(30px, 4vw, 48px); line-height: 1.08; letter-spacing: -0.03
 .chat div { padding: 10px 14px; border-radius: 18px; max-width: 88%; }
 .chat .me { justify-self: end; color: #fff; background: linear-gradient(135deg, var(--violet), var(--indigo)); border-bottom-right-radius: 6px; }
 .chat .it { background: var(--raised); border-bottom-left-radius: 6px; }
+
+/* The live demo */
+.demo { margin-top: 8px; display: grid; gap: 14px; }
+.demo-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.demo-top label { font-size: 15px; font-weight: 600; }
+.demo-top output { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 32px; margin: 0; background: transparent; cursor: grab; touch-action: pan-y; }
+input[type="range"]:active { cursor: grabbing; }
+input[type="range"]::-webkit-slider-runnable-track { height: 8px; border-radius: 999px; background: linear-gradient(90deg, var(--violet) var(--fill, 0%), var(--raised) var(--fill, 0%)); }
+input[type="range"]::-moz-range-track { height: 8px; border-radius: 999px; background: var(--raised); }
+input[type="range"]::-moz-range-progress { height: 8px; border-radius: 999px; background: var(--violet); }
+input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 26px; height: 26px; margin-top: -9px; border-radius: 50%; background: #fff; border: 2px solid var(--violet); box-shadow: 0 4px 14px rgb(40 30 120 / 0.35); transition: transform 0.15s var(--ease); }
+input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 2px solid var(--violet); box-shadow: 0 4px 14px rgb(40 30 120 / 0.35); }
+input[type="range"]:active::-webkit-slider-thumb { transform: scale(1.15); }
+.verdict { --tone: var(--good); display: grid; gap: 2px; padding: 12px 16px; border-radius: 16px; font-size: 15px; background: color-mix(in srgb, var(--tone) 12%, transparent); border: 1px solid color-mix(in srgb, var(--tone) 40%, transparent); transition: background 0.25s, border-color 0.25s; }
+.verdict[data-state="tight"] { --tone: var(--warn); }
+.verdict[data-state="short"] { --tone: var(--bad); }
+.verdict b { color: var(--tone); font-size: 17px; transition: color 0.25s; }
+.verdict span { color: var(--muted); font-variant-numeric: tabular-nums; }
 
 /* Screens */
 .screens { display: flex; justify-content: center; gap: clamp(16px, 3vw, 40px); align-items: center; }
@@ -169,27 +200,19 @@ footer a { color: var(--muted); }
 
 /* Motion: only for people who have not asked for less of it. */
 @media (prefers-reduced-motion: no-preference) {
-  /* Each drifting piece gets its own layer and moves by transform only. Without that the
-     browser repaints it every frame and snaps it to whole pixels, which reads as stepping. A
-     blurred backdrop on a moving piece forces the same repaint, so the chips are solid. */
+  /* The phone and chips are moved by the script as the pointer moves. Each has its own layer
+     so that movement is drawn in fractions of a pixel. */
   .stage .phone, .float { will-change: transform; backface-visibility: hidden; }
-  .stage .phone { animation: drift 7s ease-in-out infinite alternate; }
-  .float.q { animation: drift-wide 5.5s ease-in-out -2s infinite alternate; }
-  .float.a { animation: drift-wide 6.5s ease-in-out -4s infinite alternate-reverse; }
   /* The opening moves into place but never starts hidden: a page captured before its first
      frame (a link preview, a background tab) must still show its content. */
   .hero h1, .hero p, .hero .chip, .hero .cta, .stage { animation: settle 0.9s var(--ease) both; }
   .hero h1 { animation-delay: 0.06s; } .hero p { animation-delay: 0.14s; } .hero .cta { animation-delay: 0.22s; } .stage { animation-delay: 0.18s; }
   @supports (animation-timeline: view()) {
     .reveal { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 42%; }
-    .chart .line { animation: draw linear both; animation-timeline: view(); animation-range: entry 10% cover 42%; }
   }
 }
-@keyframes drift { from { transform: translate3d(0, -8px, 0); } to { transform: translate3d(0, 8px, 0); } }
-@keyframes drift-wide { from { transform: translate3d(0, -12px, 0); } to { transform: translate3d(0, 12px, 0); } }
 @keyframes settle { from { transform: translateY(20px) scale(0.985); } to { transform: none; } }
 @keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
-@keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 
 @media (max-width: 900px) {
   .hero .wrap { grid-template-columns: 1fr; }
@@ -197,6 +220,7 @@ footer a { color: var(--muted); }
   .float.q { left: 0; } .float.a { right: 0; }
   .card, .card.wide, .card.half { grid-column: span 6; }
   .three { grid-template-columns: 1fr; }
+  .chart text { font-size: 21px; }
   .screens { justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px 20px 20px; margin-inline: -20px; scrollbar-width: none; }
   .screens figure { scroll-snap-align: center; }
   .doc { grid-template-columns: 1fr; gap: 0; }

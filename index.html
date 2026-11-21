@@ -37,7 +37,7 @@
         <h1>Know if you can afford it <span class="grad">before you buy it.</span></h1>
         <p>Budget reads your household's bank activity, finds the bills and paychecks, and shows where your balance is heading over the coming weeks.</p>
         <div class="cta">
-          <a class="btn primary" href="#features">See how it works</a>
+          <a class="btn primary" href="#try">Try the forecast</a>
           <a class="btn quiet" href="#privacy">How your data is handled</a>
         </div>
       </div>
@@ -47,8 +47,8 @@
           <img class="phone" src="home.webp" width="644" height="1400" fetchpriority="high"
                alt="The Home screen: the balance available now, a forecast line for the weeks ahead, spending this month, and net worth. Sample data.">
         </picture>
-        <div class="float q" aria-hidden="true"><span>You ask</span><b>Can we afford $600 on Friday?</b></div>
-        <div class="float a" aria-hidden="true"><b>Yes, comfortably</b><span>Lowest balance after: $1,240 on Dec 1</span></div>
+        <div class="float q" aria-hidden="true"><span>You ask</span><b>Can we afford $400 this week?</b></div>
+        <div class="float a" aria-hidden="true"><b>Yes, comfortably</b><span>Up to $690 fits before payday</span></div>
       </div>
     </div>
   </section>
@@ -60,19 +60,31 @@
       <p class="lede reveal">Most budgeting apps report what you already spent. Budget starts from the weeks ahead.</p>
 
       <div class="bento">
-        <article class="card wide reveal">
-          <h3>A forecast you can test</h3>
-          <p>Bills, paychecks, planned costs, and your usual day of spending are projected forward. Ask about a purchase and the answer comes from the lowest balance that would follow it.</p>
-          <div class="viz" aria-hidden="true">
-            <svg class="chart" viewBox="0 0 640 170" role="presentation">
-              <defs><linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6d5cf2" stop-opacity="0.32"/><stop offset="1" stop-color="#6d5cf2" stop-opacity="0"/></linearGradient></defs>
-              <line class="grid" x1="0" y1="140" x2="640" y2="140"/>
-              <path class="area" d="M0 70 L90 78 L150 86 L152 124 L240 130 L300 136 L302 52 L400 60 L470 68 L472 96 L560 102 L640 108 L640 140 L0 140 Z"/>
-              <path class="line" pathLength="1" d="M0 70 L90 78 L150 86 L152 124 L240 130 L300 136 L302 52 L400 60 L470 68 L472 96 L560 102 L640 108"/>
-              <circle class="dot" cx="300" cy="136" r="6"/>
-              <text x="312" y="160">Lowest point</text>
-              <text x="160" y="112">Rent</text>
-              <text x="312" y="44">Payday</text>
+        <article class="card wide reveal" id="try">
+          <h3>Try it: can we afford it?</h3>
+          <p>Drag the amount. The answer comes from the lowest balance that would follow the purchase, which is the rule the app uses. The numbers here are a sample.</p>
+          <div class="demo">
+            <div class="demo-top">
+              <label id="amount-label" for="amount">A purchase this Friday</label>
+              <output id="amount-out" for="amount">$400</output>
+            </div>
+            <input id="amount" type="range" min="0" max="2000" step="50" value="400" style="--fill: 20%">
+            <div class="verdict" id="verdict" data-state="ok" role="status" aria-live="polite">
+              <b id="verdict-title">Yes, comfortably</b>
+              <span id="verdict-detail">Lowest balance after: $590, just before payday. Up to $690 fits.</span>
+            </div>
+            <svg class="chart" id="demo-chart" viewBox="0 0 640 210" role="img" aria-label="Forecast balance for the next 30 days, with and without the purchase">
+              <defs><linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6d5cf2" stop-opacity="0.3"/><stop offset="1" stop-color="#6d5cf2" stop-opacity="0"/></linearGradient></defs>
+              <line class="rule cushion" id="demo-cushion" x1="0" x2="640" y1="150" y2="150"/>
+              <line class="rule zero" id="demo-zero" x1="0" x2="640" y1="158" y2="158"/>
+              <line class="rule buy" id="demo-buy" x1="66" x2="66" y1="10" y2="184"/>
+              <path class="area" id="demo-area" d="M0 62 L66 74 L220 150 L287 86 L640 60 L640 184 L0 184 Z"/>
+              <path class="ghost" id="demo-ghost" d="M0 62 L66 66 L220 138 L287 74 L640 50"/>
+              <path class="line" id="demo-line" d="M0 62 L66 74 L220 150 L287 86 L640 60"/>
+              <circle class="dot" id="demo-dot" cx="265" cy="150" r="6"/>
+              <text id="demo-buy-label" x="72" y="22">Friday</text>
+              <text x="634" y="204" text-anchor="end">30 days</text>
+              <text x="0" y="204">Today</text>
             </svg>
           </div>
         </article>
@@ -83,6 +95,8 @@
           <div class="viz people" aria-hidden="true">
             <div class="row"><span class="av a">A</span>Oat milk<span>Alex</span></div>
             <div class="row"><span class="av s">S</span>School play, Friday<span>Sam</span></div>
+            <div class="row"><span class="av a">A</span>Summer trip goal<span>Alex</span></div>
+            <div class="row"><span class="av s">S</span>Eggs, checked off<span>Sam</span></div>
           </div>
         </article>
 
@@ -167,7 +181,7 @@
           <div>
             <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg></div>
             <h3>No ads, no tracking, no sale</h3>
-            <p>The app has no advertising and no analytics. Your data is not sold or shared for marketing. This site sets no cookies and runs no scripts.</p>
+            <p>The app has no advertising and no analytics. Your data is not sold or shared for marketing. This site sets no cookies and loads nothing from other companies.</p>
           </div>
           <div>
             <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
@@ -191,5 +205,6 @@
     <span><a href="privacy.html">Privacy policy</a></span>
   </div>
 </footer>
+<script src="app.js" defer></script>
 </body>
 </html>
