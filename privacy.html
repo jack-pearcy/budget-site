@@ -70,7 +70,7 @@
     <ul>
       <li><strong>Supabase</strong> hosts the database, sign-in, and server functions.</li>
       <li><strong>SimpleFIN Bridge</strong> connects to your bank, if you choose to connect one. You create that connection yourself and can remove it there at any time.</li>
-      <li><strong>Anthropic</strong> provides the model behind the Ask screen. When you ask a question, the server sends your question together with your household's financial data: account names and balances, categories and budgets, goals, recent transactions, and a forecast. Long runs of digits are masked first, and the bank access key is never sent. If you do not use the Ask screen, nothing is sent to Anthropic.</li>
+      <li><strong>Anthropic</strong> provides the model behind the Ask screen. When you ask a question, the server sends your question together with your household's financial data: account names and balances, categories and budgets, goals, recent transactions, and a forecast. Long runs of digits are masked first, and the bank access key is never sent. When a typed rule is one the app cannot read by itself, only that sentence and your category names are sent. Nothing is sent until you allow it in the app, and the server checks that permission before every request. Each person in a household decides for themselves, and can take it back in Settings. If you do not use the Ask screen or type such a rule, nothing is sent to Anthropic.</li>
     </ul>
 
     <h2 id="device">Apple Calendar, notifications, and the widget</h2>
